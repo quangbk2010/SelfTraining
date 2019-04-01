@@ -1,0 +1,2 @@
+cc -g -o tcp_Server3 tcp_Server.c -lpthread
+cc -g -o tcp_Client tcp_Client.c

@@ -1,0 +1,18 @@
+- In file: client.in
+127.0.0.1       :1. server ip
+9281			:2. server port
+Dld_file.txt    :3. data downloaded that will stored in this file    
+1000            :4. rwnd (receive window size) (unit: bytes)
+				    WARNING! (rwnd * WINDOW_SIZE) should be <= RCVBUFFER
+				    EXP. (1000 * 3) < 4096
+7               :5. random seed   (don't need)
+0.5             :6. packet loss rate (don't need)
+0.1             :7. exponential distributor variable (don't need)
+
+- In file: server.in
+9281                : 1. server port
+1000                : 2. swnd (server sliding window) (unit: bytes)
+					     WARNING! (swnd * WINDOW_SIZE) should be <= RCVBUFFER
+				         EXP. (1000 * 3) < 4096
+Requested_file.txt  : 3. Requested file from client
+

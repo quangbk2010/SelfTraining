@@ -1,0 +1,478 @@
+git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   linux-3.10/scripts/kconfig/conf
+	modified:   users/boa/src/humax-version.h
+	modified:   users/busybox-1.13/docs/BusyBox.txt
+	modified:   users/busybox-1.13/include/autoconf.h
+	modified:   users/busybox-1.13/scripts/basic/docproc
+	modified:   users/busybox-1.13/scripts/basic/split-include
+	modified:   users/busybox-1.13/scripts/kconfig/conf
+	modified:   users/curl-7.52.1/docs/Makefile
+	modified:   users/curl-7.52.1/docs/cmdline-opts/Makefile
+	modified:   users/curl-7.52.1/docs/examples/Makefile
+	modified:   users/curl-7.52.1/docs/libcurl/Makefile
+	modified:   users/curl-7.52.1/docs/libcurl/opts/Makefile
+	modified:   users/curl-7.52.1/scripts/Makefile
+	modified:   users/curl-7.52.1/tests/Makefile
+	modified:   users/curl-7.52.1/tests/certs/Makefile
+	modified:   users/curl-7.52.1/tests/certs/scripts/Makefile
+	modified:   users/curl-7.52.1/tests/data/Makefile
+	modified:   users/curl-7.52.1/tests/libtest/Makefile
+	modified:   users/curl-7.52.1/tests/server/Makefile
+	modified:   users/curl-7.52.1/tests/unit/Makefile
+	modified:   users/cwmp-tr069_v2/matrixssl-1-8-3-open/examples/httpsClient
+	modified:   users/cwmp-tr069_v2/matrixssl-1-8-3-open/examples/httpsReflector
+	modified:   users/iptables-1.4.4/Makefile
+	modified:   users/iptables-1.4.4/extensions/GNUmakefile
+	modified:   users/iptables-1.4.4/include/Makefile
+	modified:   users/iptables-1.4.4/libipq/Makefile
+	modified:   users/iptables-1.4.4/libtool
+	modified:   users/minidlna/ffmpeg-0.5.2/libswscale/libswscale-uninstalled.pc
+	modified:   users/minidlna/ffmpeg-0.5.2/libswscale/libswscale.pc
+	modified:   users/minidlna/libid3tag-0.15.1b/autom4te.cache/output.0
+	modified:   users/minidlna/libid3tag-0.15.1b/autom4te.cache/requests
+	modified:   users/minidlna/libid3tag-0.15.1b/autom4te.cache/traces.0
+	modified:   users/minidlna/libid3tag-0.15.1b/compat.c
+	modified:   users/minidlna/libid3tag-0.15.1b/configure
+	modified:   users/minidlna/libid3tag-0.15.1b/frametype.c
+	modified:   users/minidlna/libid3tag-0.15.1b/genre.dat
+	modified:   users/minidlna/sqlite-3.7.2-src/autom4te.cache/output.0
+	modified:   users/minidlna/sqlite-3.7.2-src/autom4te.cache/requests
+	modified:   users/minidlna/sqlite-3.7.2-src/autom4te.cache/traces.0
+	modified:   users/minidlna/sqlite-3.7.2-src/configure
+	modified:   users/minidlna/zlib-1.2.5/Makefile
+	modified:   users/minidlna/zlib-1.2.5/zconf.h
+	modified:   users/miniupnpd/miniupnpd-1.6.20110730/config.h
+	modified:   users/radvd-0.9.1/config.log
+	typechange: users/radvd-0.9.1/device.c
+	modified:   users/wsc_humax/.diff_config
+	modified:   users/wsc_humax/.kernel_config
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.oldconfig
+	boards/rtl819xD/image/
+	boards/rtl819xD/romfs/
+	boards/rtl819xD/root.bin
+	boards/rtl819xD/squashfs-pf-list.txt
+	linux-3.10/.version
+	linux-3.10/Module.symvers
+	linux-3.10/arch/rlx/bsp
+	linux-3.10/arch/rlx/include/generated/
+	linux-3.10/arch/rlx/kernel/asm-offsets.s
+	linux-3.10/arch/rlx/soc-rtl819xd/vmlinux.lds
+	linux-3.10/include/config/
+	linux-3.10/include/generated/
+	linux-3.10/kernel/bounds.s
+	linux-3.10/kernel/hz.bc
+	linux-3.10/kernel/timeconst.h
+	linux-3.10/lib/crc32table.h
+	linux-3.10/lib/gen_crc32table
+	linux-3.10/linux
+	linux-3.10/rtkload/linux.bin
+	linux-3.10/rtkload/memload-full
+	linux-3.10/rtkload/memload-partial
+	linux-3.10/rtkload/nfjrom
+	linux-3.10/rtkload/vmlinux-stripped
+	linux-3.10/rtkload/vmlinux_img
+	linux-3.10/rtkload/vmlinux_img.gz
+	linux-3.10/scripts/mod/devicetable-offsets.h
+	linux-3.10/scripts/mod/devicetable-offsets.s
+	linux-3.10/scripts/mod/elfconfig.h
+	linux-3.10/scripts/mod/mk_elfconfig
+	linux-3.10/scripts/mod/modpost
+	linux-3.10/scripts/sortextable
+	linux-3.10/vmlinux
+	users/IAPP/iapp
+	users/auth/src/auth
+	users/auth/src/dlisten/iwcontrol
+	users/boa/.diff_config
+	users/boa/.diff_users_config
+	users/boa/.kernel_config
+	users/boa/.users_config
+	users/boa/apmib/.depend
+	users/boa/apmib/def_setting_config.h
+	users/boa/html_humax/www_files
+	users/boa/html_humax/www_files.tar.bz2
+	users/boa/src/.depend
+	users/boa/src/boa
+	users/boa/system/.depend
+	users/boa/system/ddns_inet
+	users/boa/system/ntp_inet
+	users/boa/system/ppp_inet
+	users/boa/system/rtk_eventd
+	users/boa/system/sysconf
+	users/boa/system/timelycheck
+	users/boa/tools/compweb
+	users/boa/tools/cvcfg-8m
+	users/boa/tools/cvcfg-ap
+	users/boa/tools/cvcfg-ap-8m
+	users/boa/tools/cvcfg-gw
+	users/boa/tools/cvcfg-vpn
+	users/boa/tools/cvimg
+	users/boa/tools/mgbin
+	users/boa/tools/mkramdisk
+	users/boa/utils/.depend
+	users/boa/utils/flash
+	users/boa/utils/fwd
+	users/boa/utils/main_lc5761
+	users/boa/wfaudio.include.mk
+	users/bridge-utils/brctl/brctl
+	users/bridge-utils/brctl/brctld
+	users/bridge-utils/misc/bidi
+	users/busybox-1.13/applets/applet_tables
+	users/busybox-1.13/applets/usage
+	users/busybox-1.13/busybox
+	users/busybox-1.13/busybox.links
+	users/busybox-1.13/busybox_unstripped
+	users/busybox-1.13/busybox_unstripped.out
+	users/busybox-1.13/docs/BusyBox.1
+	users/busybox-1.13/docs/BusyBox.html
+	users/busybox-1.13/docs/busybox.net/BusyBox.html
+	users/busybox-1.13/include/applet_tables.h
+	users/busybox-1.13/include/bbconfigopts.h
+	users/busybox-1.13/include/config/
+	users/busybox-1.13/include/usage_compressed.h
+	users/cscope.out
+	users/curl-7.52.1/Makefile
+	users/curl-7.52.1/config.log
+	users/curl-7.52.1/curl-config
+	users/curl-7.52.1/include/Makefile
+	users/curl-7.52.1/include/curl/Makefile
+	users/curl-7.52.1/include/curl/curlbuild.h
+	users/curl-7.52.1/include/curl/stamp-h2
+	users/curl-7.52.1/lib/.deps/.dirstamp
+	users/curl-7.52.1/lib/.deps/curl-nonblock.Po
+	users/curl-7.52.1/lib/.deps/curl-strtoofft.Po
+	users/curl-7.52.1/lib/.deps/curl-warnless.Po
+	users/curl-7.52.1/lib/.dirstamp
+	users/curl-7.52.1/lib/.libs/
+	users/curl-7.52.1/lib/Makefile
+	users/curl-7.52.1/lib/curl_config.h
+	users/curl-7.52.1/lib/libcurl.vers
+	users/curl-7.52.1/lib/stamp-h1
+	users/curl-7.52.1/lib/vauth/.deps/
+	users/curl-7.52.1/lib/vauth/.dirstamp
+	users/curl-7.52.1/lib/vauth/.libs/
+	users/curl-7.52.1/lib/vtls/.deps/
+	users/curl-7.52.1/lib/vtls/.dirstamp
+	users/curl-7.52.1/lib/vtls/.libs/
+	users/curl-7.52.1/libcurl.pc
+	users/curl-7.52.1/libtool
+	users/curl-7.52.1/packages/AIX/Makefile
+	users/curl-7.52.1/packages/AIX/RPM/Makefile
+	users/curl-7.52.1/packages/AIX/RPM/curl.spec
+	users/curl-7.52.1/packages/EPM/Makefile
+	users/curl-7.52.1/packages/EPM/curl.list
+	users/curl-7.52.1/packages/Linux/Makefile
+	users/curl-7.52.1/packages/Linux/RPM/Makefile
+	users/curl-7.52.1/packages/Linux/RPM/curl-ssl.spec
+	users/curl-7.52.1/packages/Linux/RPM/curl.spec
+	users/curl-7.52.1/packages/Makefile
+	users/curl-7.52.1/packages/Solaris/Makefile
+	users/curl-7.52.1/packages/Win32/Makefile
+	users/curl-7.52.1/packages/Win32/cygwin/Makefile
+	users/curl-7.52.1/packages/vms/Makefile
+	users/curl-7.52.1/src/.deps/
+	users/curl-7.52.1/src/.libs/
+	users/curl-7.52.1/src/Makefile
+	users/curl-7.52.1/src/curl
+	users/curl-7.52.1/src/tool_hugehelp.c
+	users/cwmp-tr069_v2/cwmpClient/.depend
+	users/cwmp-tr069_v2/cwmpClient/cwmpClient
+	users/cwmp-tr069_v2/cwmpClient/udpechoserver
+	users/cwmp-tr069_v2/gsoaplib/soapcpp2/stdsoap2_ck.c
+	users/cwmp-tr069_v2/gsoaplib/soapcpp2/stdsoap2_ssl.c
+	users/dnsmasq-2.33/src/dnsmasq
+	users/flatfsd/flatfsd
+	users/ft_daemon/ftd
+	users/humax_ddns/hmxsvc
+	users/igmpproxy/built_time
+	users/igmpproxy/igmpproxy
+	users/iproute2-2.6.29-1/Config
+	users/iproute2-2.6.29-1/genl/genl
+	users/iproute2-2.6.29-1/ip/ip
+	users/iproute2-2.6.29-1/ip/rtmon
+	users/iproute2-2.6.29-1/misc/ifstat
+	users/iproute2-2.6.29-1/misc/lnstat
+	users/iproute2-2.6.29-1/misc/nstat
+	users/iproute2-2.6.29-1/misc/rtacct
+	users/iproute2-2.6.29-1/misc/ss
+	users/iproute2-2.6.29-1/misc/ssfilter.c
+	users/iproute2-2.6.29-1/netem/maketable
+	users/iproute2-2.6.29-1/netem/normal
+	users/iproute2-2.6.29-1/netem/pareto
+	users/iproute2-2.6.29-1/netem/paretonormal
+	users/iproute2-2.6.29-1/tc/emp_ematch.yacc.h
+	users/iproute2-2.6.29-1/tc/emp_ematch.yacc.output
+	users/iproute2-2.6.29-1/tc/tc
+	users/iptables-1.4.4/ip6tables_config_done
+	users/l2tpd/l2tpd
+	users/lib/
+	users/libuuid-1.0.3/.deps/
+	users/libuuid-1.0.3/.libs/
+	users/libuuid-1.0.3/Makefile
+	users/libuuid-1.0.3/config.h
+	users/libuuid-1.0.3/config.log
+	users/libuuid-1.0.3/libtool
+	users/libuuid-1.0.3/stamp-h1
+	users/libuuid-1.0.3/uuid.pc
+	users/minidlna/ffmpeg-0.5.2/.generatedMakefile
+	users/minidlna/ffmpeg-0.5.2/config.err
+	users/minidlna/ffmpeg-0.5.2/config.h
+	users/minidlna/ffmpeg-0.5.2/config.mak
+	users/minidlna/ffmpeg-0.5.2/libavcodec/libavcodec-uninstalled.pc
+	users/minidlna/ffmpeg-0.5.2/libavcodec/libavcodec.pc
+	users/minidlna/ffmpeg-0.5.2/libavdevice/libavdevice-uninstalled.pc
+	users/minidlna/ffmpeg-0.5.2/libavdevice/libavdevice.pc
+	users/minidlna/ffmpeg-0.5.2/libavformat/libavformat-uninstalled.pc
+	users/minidlna/ffmpeg-0.5.2/libavformat/libavformat.pc
+	users/minidlna/ffmpeg-0.5.2/libavutil/libavutil-uninstalled.pc
+	users/minidlna/ffmpeg-0.5.2/libavutil/libavutil.pc
+	users/minidlna/ffmpeg-0.5.2/version.h
+	users/minidlna/jpeg-7/.deps/
+	users/minidlna/jpeg-7/.generatedMakefile
+	users/minidlna/jpeg-7/.libs/
+	users/minidlna/jpeg-7/Makefile
+	users/minidlna/jpeg-7/cjpeg
+	users/minidlna/jpeg-7/config.log
+	users/minidlna/jpeg-7/djpeg
+	users/minidlna/jpeg-7/jconfig.h
+	users/minidlna/jpeg-7/jpegtran
+	users/minidlna/jpeg-7/libtool
+	users/minidlna/jpeg-7/rdjpgcom
+	users/minidlna/jpeg-7/stamp-h1
+	users/minidlna/jpeg-7/wrjpgcom
+	users/minidlna/libexif-0.6.21/.generatedMakefile
+	users/minidlna/libexif-0.6.21/Makefile
+	users/minidlna/libexif-0.6.21/binary/Makefile
+	users/minidlna/libexif-0.6.21/config.h
+	users/minidlna/libexif-0.6.21/config.log
+	users/minidlna/libexif-0.6.21/contrib/Makefile
+	users/minidlna/libexif-0.6.21/contrib/examples/.deps/
+	users/minidlna/libexif-0.6.21/contrib/examples/Makefile
+	users/minidlna/libexif-0.6.21/doc/Doxyfile
+	users/minidlna/libexif-0.6.21/doc/Doxyfile-internals
+	users/minidlna/libexif-0.6.21/doc/Makefile
+	users/minidlna/libexif-0.6.21/libexif-uninstalled.pc
+	users/minidlna/libexif-0.6.21/libexif.pc
+	users/minidlna/libexif-0.6.21/libexif.spec
+	users/minidlna/libexif-0.6.21/libexif/.deps/
+	users/minidlna/libexif-0.6.21/libexif/.libs/
+	users/minidlna/libexif-0.6.21/libexif/Makefile
+	users/minidlna/libexif-0.6.21/libexif/_stdint.h
+	users/minidlna/libexif-0.6.21/libtool
+	users/minidlna/libexif-0.6.21/m4m/Makefile
+	users/minidlna/libexif-0.6.21/po/Makefile
+	users/minidlna/libexif-0.6.21/po/POTFILES
+	users/minidlna/libexif-0.6.21/stamp-h1
+	users/minidlna/libexif-0.6.21/test/.deps/
+	users/minidlna/libexif-0.6.21/test/Makefile
+	users/minidlna/libexif-0.6.21/test/nls/.deps/
+	users/minidlna/libexif-0.6.21/test/nls/Makefile
+	users/minidlna/libid3tag-0.15.1b/.deps/
+	users/minidlna/libid3tag-0.15.1b/.generatedMakefile
+	users/minidlna/libid3tag-0.15.1b/.libs/
+	users/minidlna/libid3tag-0.15.1b/Makefile
+	users/minidlna/libid3tag-0.15.1b/config.h
+	users/minidlna/libid3tag-0.15.1b/config.h.in~
+	users/minidlna/libid3tag-0.15.1b/config.log
+	users/minidlna/libid3tag-0.15.1b/libid3tag.list
+	users/minidlna/libid3tag-0.15.1b/libtool
+	users/minidlna/libid3tag-0.15.1b/msvc++/Makefile
+	users/minidlna/libid3tag-0.15.1b/stamp-h1
+	users/minidlna/minidlna-1.0.25/config.h
+	users/minidlna/minidlna-1.0.25/minidlna
+	users/minidlna/minidlna-1.0.25/testupnpdescgen
+	users/minidlna/sqlite-3.7.2-src/.deps/
+	users/minidlna/sqlite-3.7.2-src/.generatedMakefile
+	users/minidlna/sqlite-3.7.2-src/.libs/
+	users/minidlna/sqlite-3.7.2-src/Makefile
+	users/minidlna/sqlite-3.7.2-src/config.log
+	users/minidlna/sqlite-3.7.2-src/libtool
+	users/minidlna/sqlite-3.7.2-src/sqlite3
+	users/minidlna/sqlite-3.7.2-src/sqlite3.pc
+	users/minidlna/tmp/
+	users/minidlna/zlib-1.2.5/.generatedMakefile
+	users/minidlna/zlib-1.2.5/example
+	users/minidlna/zlib-1.2.5/example64
+	users/minidlna/zlib-1.2.5/examplesh
+	users/minidlna/zlib-1.2.5/libz.so.1
+	users/minidlna/zlib-1.2.5/minigzip
+	users/minidlna/zlib-1.2.5/minigzip64
+	users/minidlna/zlib-1.2.5/minigzipsh
+	users/minidlna/zlib-1.2.5/zlib.pc
+	users/miniupnpc-2.0/listdevices
+	users/miniupnpc-2.0/miniupnpcstrings.h
+	users/miniupnpc-2.0/upnpc-shared
+	users/miniupnpc-2.0/upnpc-static
+	users/miniupnpd/miniupnpd
+	users/miniupnpd/miniupnpd-1.6.20110730/miniupnpd
+	users/miniupnpd/miniupnpd-1.6.20110730/miniupnpdctl
+	users/miniupnpd/miniupnpd-1.6.20110730/testgetifaddr
+	users/miniupnpd/miniupnpd-1.6.20110730/testgetifstats
+	users/miniupnpd/miniupnpd-1.6.20110730/testupnpdescgen
+	users/miniupnpd/miniupnpd-1.6.20110730/testupnppermissions
+	users/mldproxy/built_time
+	users/mldproxy/mldproxy
+	users/mosquitto-1.4/client/mosquitto_pub
+	users/mosquitto-1.4/client/mosquitto_sub
+	users/mosquitto-1.4/lib/cpp/libmosquittopp.so.1
+	users/mosquitto-1.4/lib/libmosquitto.so.1
+	users/mosquitto-1.4/src/mosquitto
+	users/mosquitto-1.4/src/mosquitto_passwd
+	users/noip2/noip2
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/config.h
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/config.log
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/include/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/include/fuse-lite/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/include/ntfs-3g/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libfuse-lite/.deps/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libfuse-lite/.libs/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libfuse-lite/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libntfs-3g/.deps/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libntfs-3g/.libs/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libntfs-3g/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libntfs-3g/libntfs-3g.pc
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/libtool
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/.deps/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/.libs/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/mkntfs
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfscat
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfsclone
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfscluster
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfscmp
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfscp
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfsfix
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfsinfo
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfslabel
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfsls
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfsresize
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/ntfsprogs/ntfsundelete
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/.deps/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/.libs/
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/Makefile
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/lowntfs-3g
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/ntfs-3g
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/ntfs-3g.probe
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/ntfs-3g.secaudit
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/src/ntfs-3g.usermap
+	users/ntfs-3g_ntfsprogs-2014.2.15/ntfs-3g_ntfsprogs-2014.2.15/stamp-h1
+	users/ntpclient/ntpclient
+	users/openssl-1.0.2a/apps/openssl
+	users/openssl-1.0.2a/crypto/bn/bn-mips.s
+	users/openssl-1.0.2a/crypto/bn/mips-mont.s
+	users/openssl-1.0.2a/crypto/buildinf.h
+	users/openssl-1.0.2a/dlib_config_done
+	users/openssl-1.0.2a/libcrypto.pc
+	users/openssl-1.0.2a/libcrypto.so.1.0.0
+	users/openssl-1.0.2a/libssl.pc
+	users/openssl-1.0.2a/libssl.so.1.0.0
+	users/openssl-1.0.2a/openssl.pc
+	users/openssl-1.0.2a/test/sha256t
+	users/openssl-1.0.2a/test/sha512t
+	users/p910nd-0.97/p910nd
+	users/ppp-2.4.4/pppd/.diff_users_config
+	users/ppp-2.4.4/pppd/.users_config
+	users/ppp-2.4.4/pppd/plugins/rp-pppoe/.diff_users_config
+	users/ppp-2.4.4/pppd/plugins/rp-pppoe/.users_config
+	users/ppp-2.4.4/pppd/pppd
+	users/pptp-1.7.2/config.h
+	users/pptp-1.7.2/pptp
+	users/pptpd/bcrelay
+	users/pptpd/pptpctrl
+	users/pptpd/pptpd
+	users/radvd-0.9.1/.deps/
+	users/radvd-0.9.1/Makefile
+	users/radvd-0.9.1/radvd
+	users/radvd-0.9.1/radvdump
+	users/rc/reload
+	users/routed/built_time
+	users/routed/routed
+	users/samba/samba-3.2.15/.smbConfig
+	users/samba/samba-3.2.15/source/bin/nmbd
+	users/samba/samba-3.2.15/source/bin/smbd
+	users/samba/samba-3.2.15/source/bin/smbpasswd
+	users/samba/samba-3.2.15/source/client/client_proto.h
+	users/samba/samba-3.2.15/source/include/build_env.h
+	users/samba/samba-3.2.15/source/include/proto.h
+	users/samba/samba-3.2.15/source/proto_exists
+	users/samba/samba-3.2.15/source/utils/ntlm_auth_proto.h
+	users/squashfs4.2/squashfs-tools/mksquashfs
+	users/squashfs4.2/squashfs-tools/unsquashfs
+	users/udhcp-0.9.9-pre/dumpleases
+	users/udhcp-0.9.9-pre/udhcpd
+	users/upImage/flash_writer/image_upgrade
+	users/updatedd-2.5/build-stamp
+	users/updatedd-2.5/src/updatedd
+	users/usbmount/usbStorageAppController
+	users/usbmount/usbmount
+	users/vsftpd-2.3.2/vsftpd
+	users/wide-dhcpv6/.diff_users_config
+	users/wide-dhcpv6/.users_config
+	users/wide-dhcpv6/_install/
+	users/wide-dhcpv6/cfparse.c
+	users/wide-dhcpv6/cftoken.c
+	users/wide-dhcpv6/dhcp6c
+	users/wide-dhcpv6/dhcp6ctl
+	users/wide-dhcpv6/dhcp6relay
+	users/wide-dhcpv6/dhcp6s
+	users/wide-dhcpv6/y.tab.h
+	users/wireless_tools.25/iwconfig
+	users/wireless_tools.25/iwevent
+	users/wireless_tools.25/iwgetid
+	users/wireless_tools.25/iwlist
+	users/wireless_tools.25/iwpriv
+	users/wireless_tools.25/iwspy
+	users/wireless_tools.25/libiw.so.25
+	users/wsc_humax/src/built_time
+	users/wsc_humax/src/wscd
+	users/xl2tpd/xl2tpd
+	users/xl2tpd/xl2tpd-control
+	users/xz-5.0.8/Doxyfile
+	users/xz-5.0.8/Makefile
+	users/xz-5.0.8/config.h
+	users/xz-5.0.8/config.log
+	users/xz-5.0.8/debug/.deps/
+	users/xz-5.0.8/debug/Makefile
+	users/xz-5.0.8/lib/.deps/
+	users/xz-5.0.8/lib/Makefile
+	users/xz-5.0.8/libtool
+	users/xz-5.0.8/po/Makefile
+	users/xz-5.0.8/po/POTFILES
+	users/xz-5.0.8/src/Makefile
+	users/xz-5.0.8/src/liblzma/.deps/
+	users/xz-5.0.8/src/liblzma/.libs/
+	users/xz-5.0.8/src/liblzma/Makefile
+	users/xz-5.0.8/src/liblzma/api/Makefile
+	users/xz-5.0.8/src/liblzma/liblzma.pc
+	users/xz-5.0.8/src/lzmainfo/.deps/
+	users/xz-5.0.8/src/lzmainfo/Makefile
+	users/xz-5.0.8/src/lzmainfo/lzmainfo
+	users/xz-5.0.8/src/scripts/Makefile
+	users/xz-5.0.8/src/scripts/xzdiff
+	users/xz-5.0.8/src/scripts/xzgrep
+	users/xz-5.0.8/src/scripts/xzless
+	users/xz-5.0.8/src/scripts/xzmore
+	users/xz-5.0.8/src/xz/.deps/
+	users/xz-5.0.8/src/xz/Makefile
+	users/xz-5.0.8/src/xz/xz
+	users/xz-5.0.8/src/xzdec/.deps/
+	users/xz-5.0.8/src/xzdec/Makefile
+	users/xz-5.0.8/src/xzdec/lzmadec
+	users/xz-5.0.8/src/xzdec/xzdec
+	users/xz-5.0.8/stamp-h1
+	users/xz-5.0.8/tests/.deps/
+	users/xz-5.0.8/tests/Makefile
+
+no changes added to commit (use "git add" and/or "git commit -a")
+humax@humax-t3a:~/work/source/T3A_Project/QT3A$ 

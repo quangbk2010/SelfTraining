@@ -1,0 +1,1 @@
+g++ -o jawbreaker jawbreaker.cpp CImg.h -lpthread -I. -lX11

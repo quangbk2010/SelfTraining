@@ -1,0 +1,1 @@
+cc -o debug debug1.c

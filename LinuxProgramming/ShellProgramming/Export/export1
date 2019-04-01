@@ -1,0 +1,6 @@
+#!/bin/sh
+
+foo="the first"
+export bar="the second"
+
+./export2

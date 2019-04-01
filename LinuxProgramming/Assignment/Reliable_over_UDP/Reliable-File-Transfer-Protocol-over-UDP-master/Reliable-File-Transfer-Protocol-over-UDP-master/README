@@ -1,0 +1,242 @@
+# Copyright (c) 2015 All Right Reserved,Arpit Singh(arpsingh@cs.stonybrook.edu),Ipshita Singha Roy(ipshita.singharoy@stonybrook.edu)
+# Reliable File Transfer over UDP is free program: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Reliable File Transfer over  is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# for terms and conditions see, see <http://www.gnu.org/licenses/>.
+
+Created By              :               Arpit Singh,Ipshita Singha Roy
+Student Id              :               Arpit Singh(110162005),Ipshita Singha Roy (110284325)
+Date                    :               27 October 2015
+File Type               :               README
+Summary                 :               Aim of this project is to design a reliable File transfer protocol over UDP using TCP like relibillity features. Client requests a filename from server, and server return the contents of file. Client subsequenty prints file contents as it receives it. Client is multithreaded program with one thread reading data from server and other thread printing data on screen. Structures used by both thread are locked and synchronized using Mutexes. Server runs infinitely on well known port and on arrival of client request forks off child to interact with client.Features implemented at server end includes flow control, congestion control,slow start,congestion avoidance and fast retransmit. Server also keeps track of all interfaces attached to it.Client can create socket on any of its address.
+
+Compile Instructions   :  Run "make". and ./client to run client. Use "./server" to run server.
+			  Client.in contains client parameters and Server.in contain Server Parameters.
+
+
+Design Details         : Packet structure:
+________________
+|Sequence Number| --- 4 bytes (Represnts Sequence number of packet)
+|_______________|
+|Acknowledgement| ----4 bytes (Represnts Ack number of packet)
+|_______________|
+|Window Size    | ----4 bytes (Represnts Window Size)
+|_______________|
+| Flag          | ----4 bytes (Represnts type of packet. SYN,ACK,DATA,PROBE,FIN,FIN_ACK,SYN_ACK)
+|_______________|
+|Payload        | ----496 bytes
+|_______________| 
+
+Total Packet Size = 512 bytes
+
+Structure of Transport Control Block:
+We used same structure of server as well as Client:
+
+Following are parts of our TCB structure:
+        rcvWindow -------------Used allocation buffer by client and retransmission queue by server 
+        sendWindow-------------Used as allocation buffer by server and advertised window by client
+        congWindow-------------Maintian the congestion window
+        ssThresh---------------Threshold value for AIMD protocol
+
+
+        oldestSeqNum----------Represents Last unacknowledged sequence number at server
+        nextNewSeqNum---------Represnts last packet sent by server 
+        nextSendSeqNum--------Represents sequennce number to be sent out from server
+        
+	seq------------------ Represents sequence number printed 
+        ack-------------------Represents Ack no sent to server by client
+        queueHead-------------Reprsents Queue holding retransmission packet at server and received packets
+			      at client
+
+Features Implemented :
+------------------------------------------------------------------------------------
+1.Server Unicast address Binding and Local address detection:
+-------------------------------------------------------------- Both Clients and server binds to unicast address. Client detrmines if serves is local and enable DONT_ROUTE flag accordingly. Server also determines if client is local and enables DONT_ROUTE flag. Server binds to all  interfaces on host and uses SELECT to detrmine interface of connection request. It uses a client queue consisting of Client address and port number to detect if same client is requesting on already open connection for it.  
+Client_Request_List consists of:
+	cliaddr -- sockaddr_in structure to keep track of client port and address
+	next    -- Linked list pointing to next client.
+
+2. Changes made to IFI structure:
+----------------------------------- All structures are changed to standard sockaddr_in. Function "print_interfaces" to used to detrmine all interfaces and print them. Function "is_local" is written to determine if address is local or not.
+
+3. Multithreading on Client and fork on server at client request:
+------------------------------------------------------------------ Client runs as multithreaded process where two threads are created: ValidityThread and DataThread. DataThread keeps track of packets received and sent. Validity Thread prints output on screen.They are syncronized by pthread_mutex. Server forks off new child on client request and continue running to receive more client requests
+
+4. Flow Control 
+-------------------- Flow control is introduced by adding window size represnting th buffer at peer end. Based on window advertised by client, server limits its sending rate so as not to overflow client buffer
+
+5. Reliabillty Features 
+------------------------- ARQ(Automatic Repeat Request) and Retransission timer timeout are implemented using SIGALRM and "itimer". On every window of packet sent, retramsision timer is set andd it fires if acknowledgement does not arrive. It resents once all acknolwledgement arrives.
+
+6.RTT and RTO changes: 
+-------------------------All time is recorded in miiliseconds and RTT parameters are treated as integers. rtt_stop is chnaged to pass number of maximum retransmission permitted.
+Initial rtt_var is set to 3000sec and RTO calculation are changed to:
+RTO = SRTT >> 3 + RTT_RTTVAR
+SRTT is initilaized to 0 and it recalculates on every packet exchange.
+
+7.Congestion Control: 
+------------------------Congestion control is implemnted using ssThresh and Congestion Window.It consists of three parts:
+(a) Slow Start: Congestion window start by 1. After retransmission occures congestion window is set to 1. On subsequent acks till congestion control becomes equal to ssthresh, it increase by 1. After that it increase by 1 for full window of acks.
+
+(b)Congestion Avoidance : AIMD (Additive increase and mutiplicative decrease) algorithm is implmented to maintain congestion control. On events of retransmission, Congestion window reduces to 1 and ssthresh reduces to half of congestion window. On events of 3 duplicate acks received, congestion window reduces to half. After congestion  window increases beyond ssthresh, it increases by 1 for every block of window received.
+
+(c)Fast Recovery : On event of 3 duplicate acks received at server, congestion window reduces to half rather than reducing to 1 and retransmits requested packet.
+
+(d)Fast retransmit: Client on receiving out of order packet in window will send 3 consecutive duplicate acks thus aavoiding retransmission timer firing and related overhead.
+
+(e) Cumulative Acks: If server receives acks beyond its last acked packet, all consecutive packet till ack are removed from retransmission window
+
+8. Probe Window: 
+-------------------------In events of client window reducing to 0, server sends probes at regular interval to determine if client window has opened up for retransmisison.Client replies by advertising its current window size.
+
+9.Three-way Handshake: 
+-------------------------------Client sends SYN packet to intiate request. Sever forks off new child and send new port number vis SYN_ACK packet.Client reconects to newport and confirms its connection to new child via SYN_ACK_ACK packet.
+
+10.Two-way Termination: 
+-----------------------------Server on receiving all acks, intiate FIN. Timer runs on FIN to resend if it is lost.Client on receiving FIN sends FIN_ACK to acknowledge termination of request.
+
+11. Network Loss Emulation at Client :
+---------------------------- Using seed value, network loss is emulated at client which based on loss probabillity drops the packet triggering retransmission at server.
+
+-------------------------------------------------------------------------------------------------------
+Testing documentation:
+
+1. Client server works well when window size is greater than 0.
+2. On lowering window size, rate of packet transfer reduces.
+3. 1 MB file transfer is tested, however it takes very long time in case of retranmsisions.
+4. Normal  files with size of 7131 bytes have been tested which works for all window sizes
+5. Sample values of client.in
+
+Client.in
+------------------------------
+130.245.1.181,127.0.0.1
+19677
+sample.txt,example.txt,
+6,1,15,2000
+7
+0,0.5,.6,.1
+0,2,3 (msec)
+
+Server.in
+-------------------------------
+19677
+8,1,2000,20
+
+****************************************************:USER DOCUMENTATION:**************************************************
+
+In our assignment development we tried to module different functionality into different file. Following are the files used in an integrated and synchronised way to achieve the final output:
+
+server.c         The prime file responsible for initiating server, discovering its network interfaces, checking for local clients and creating a child process to handle requested client.
+
+client.c -       The prime file responsible for initiating client, discovering its network interfaces, initialising communication with server, checking if the server in same Ethernet and request for file information.
+
+util.c           This utility file used by both client and server dedicated for discovering interface addresses, checking if a particular request is local.
+
+server_handler.c This file is solely responsible for transferring file data from server end to client ensuring flow control, congestion control and automatic repeat request mechanisms.
+
+client_handler.c  This file is solely responsible for accepting file data from server along with sending ACKs correspondingly.
+
+receiver_sender.c Its contains API for reading and writing of packets and correspondingly sending and receiving them from source to destination.
+
+get_ifi_info_plus.c An API for discovering underline network interfaces for a particular address.
+
+To compile the program, all of these files should be in the same folder with Makefile. The command used is:
+$make
+
+It will compile all these files and generate executives for all of them.
+
+To run the program, first run the server program by the following command:
+$./server
+
+Secondly, to run the client program, from a separate terminal use the following command:
+$./client
+
+In the server terminal all the server information along with discovered IP addresses, network mask, subnet address should be printed along with the status of the client if local or not  from whom it has a request co
+ming flowing by file transferring updates and FIN status.
+
+In the client terminal all the discovered client addresses, network mask, subnet address with connected server address should be printed with local or not status following by the file data received from server in ea
+ch packets.
+
+****************************************************:TESTING DOCUMENTATION:**************************************************
+The program is designed to develop a file transfer mechanism using UDP sockets through client/server communication with TCP like features like flow control, congestion control and automatic repeat requ
+est (ARQ) sliding window mechanisms. The server and client both are taking some configuration parameters from server.in\342\200\235 and \342\200\234client.in\342\200\235 files. So, our moti
+ve is to test if changing these parameters still produce the desired output.
+
+INPUT   :       $./server
+EXPECTED OUTPUT :       Server program should start and print all its discovered interface address, Network Mask, subnet addresses and waits for client requests.
+
+INPUT   :       $./client
+EXPECTED OUTPUT :       Client program should start and print all its discovered interface address, Network Mask and subnet addresses. It should also able to connect to the server, print if the server
+is local or not. It should also print the content of the file it sent to server internally.
+
+INPUT: Change the post of server in input file server.in
+EXPECTED OUTPUT :       Client should not be able to connect to the server.
+
+INPUT: Change the ip address of server in input file client.in
+EXPECTED OUTPUT :       Client program terminates with message "Server IP does not exists!"
+
+INPUT: Change the filename in client.in which is not present in server.
+EXPECTED OUTPUT :       Server will print a message as File Does not exists !! and terminate the connection.
+
+INPUT: Change the receiving window size to zero in client.in
+EXPECTED OUTPUT :       Server should be able to send packets but client will not receive any packet.
+
+INPUT: Change the probability of loss to 1 in client.in
+EXPECTED OUTPUT :       No packet should be received at the client side.
+
+INPUT: Change the mean  to greater value to sleep the client for longer time to lose some packets.
+EXPECTED OUTPUT : In client side packets are delayed and printed once the time lapsed.
+
+
+*********************************************************************:SYSTEM DOCUMENTATION:**********************************************************************
+
+This program has been developed to achieve \302\254\302\254\302\254TCP features like flow control, congestion control, data-transmission reliability and automatic repeat request (ARQ
+) sliding window
+Mechanisms on UDP based sockets between client and server communication. Following are the system feature it covers:
+
+Basic Operatios:
+
+1.      Server and client starts with reading from their input files server.in and client.in and print on stdout their discovered interface addresses through Get_ifi_info_plus() using print_interfaces()
+
+Instead of storing the list obtained by Get_ifi_info_plus() including socket fds, IP addresses, Network masks and subnet addresses, the program is keep a head pointer pointing to the
+ first interface address and can be reach to other interfaces by the next pointer.
+
+2.      Both server and client check for an connection from client and server correspondingly of the client and server is in the same Ethernet by is_local() function.
+
+3.      Client bind itself to the server using initialize_client() and checks for if the server is local or not using check_server_assign_client().
+
+4.      For each incoming connection the server maintains a queue of client connection clientRequestList contain the folloing information about client:
+-sockaddr_in structure of client address
+-pointer to next node in the queue with another client address
+
+5.      Server keeps monitoring for new connection through listenForConnections() and once any client request comes create a child and server the new client by exchangeHello() functi
+on.
+
+6.      Each packet sent or received by server or client has the following structure:
+-Sequence number
+-ACK number
+-window size
+-flag
+-payload
+
+An unique field flag has been used to determine the type of the packet as DATA packet, ACK packet, FIN packet. Every packet received in both server and client end has been stored int
+o a queue tcb, whereas boxing and unboxing of the packets has been done by writePacket()  and readPacket() functions. Once server child and client is connected through ephemeral port
+there connection is bound and connected following by use of sendPacket, recvPacket() functions for secure file transfer.
+
+Adding Reliabilityto UDP:
+
+Clean Closing:
+Server: Whenever the server gets EOF character from the reading file, it sends FIN packet with flag value set to FIN  to client and waits for client FIN_ACKfor a certain time. Once the timer lapse and it didnt receive FIN_ACK its retransmit the FIN. Once server receives FIN_ACK from client it the server child terminates. Once all server child returns
+The timer lapse and it didn\342\200\231t receive FIN_ACK its retransmit the FIN. Once server receives FIN_ACK from client it the server child terminates. Once all server child returns
+ server calls free_ifi_info_plus() to free its obtained interface addresses and clean closure.
+
+Client: Whenever client receives a packet with flag=FIN it sends a packet with flag= FIN_ACK.
+
+
+ 

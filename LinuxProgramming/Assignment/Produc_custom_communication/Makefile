@@ -1,0 +1,1 @@
+gcc -g -o  IPC IPC.c -lrt

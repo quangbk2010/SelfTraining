@@ -1,0 +1,1 @@
+g++ -o Demo2 Demo2.cpp CImg.h -lpthread -I. -lX11
